@@ -8,8 +8,9 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Nome:</label>
                         <div class="col">
-                            <input type="text" class="form-control" v-model="form.nome">
+                            <input type="text" class="form-control" v-model.lazy="form.nome">
                         </div>
+                        <!-- Modificadores do v-model: number, trim e lazy. Exemplo; form.trim.nome, form.lazy.nome, form.number.nome (OBS: modificadores podem ser encadeados) -->
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">E-mail:</label>
@@ -20,13 +21,14 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Senha:</label>
                         <div class="col">
-                            <input type="password" class="form-control" v-model="form.senha">
+                            <input type="password" class="form-control" v-model.trim="form.senha">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Idade:</label>
                         <div class="col">
-                            <input type="number" class="form-control" v-model="form.idade">
+                            <input type="number" class="form-control" v-model.number="form.idade">
+                            <!-- obs: no vue 2, se o input for number, o dado é recebido como string. Entao no vue 2, é interessante usar o modificador.number no v-model para assegurar que o atrr conectado ao input de fato receba um number.-->
                         </div>
                     </div>
                     <div class="mb-3 row">

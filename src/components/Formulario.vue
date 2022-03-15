@@ -53,7 +53,12 @@
                         <label class="col-3 col-form-label">Licença:</label>
                         <div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input"
+                                    type="checkbox"
+                                    v-model="form.licenca"
+                                    true-value="SIM"
+                                    false-value="NÃO"
+                                >
                                 <label class="form-check-label">Li e aceito os termos</label>
                             </div>
                         </div>
@@ -187,7 +192,7 @@
                     <span>Gênero:</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Licença:</span>
+                    <span>Licença: {{ form.licenca }}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Interesses:</span>
@@ -237,7 +242,8 @@ export default {
             nome: 'Antonio',
             email: 'tonan@outlook.com.br',
             senha:  '123456',
-            idade: '37'
+            idade: '37',
+            licenca: 'SIM'
         }
     })
 }

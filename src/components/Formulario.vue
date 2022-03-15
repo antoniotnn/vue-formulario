@@ -68,25 +68,25 @@
                         <label class="col-3 col-form-label">Interesses:</label>
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" type="checkbox" value="JavaScript" v-model="form.interesses">
                                 <label class="form-check-label">
-                                    JavaScriot
+                                    JavaScript
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" type="checkbox" value="VueJS" v-model="form.interesses">
                                 <label class="form-check-label">
                                     VueJS
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" type="checkbox" value="Angular" v-model="form.interesses">
                                 <label class="form-check-label">
                                     Angular
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" type="checkbox" value="NodeJS" v-model="form.interesses">
                                 <label class="form-check-label">
                                     NodeJS
                                 </label>
@@ -196,6 +196,9 @@
                 </div>
                 <div class="mb-3 row">
                     <span>Interesses:</span>
+                    <ul>
+                        <li v-for="(interesse, index) in form.interesses" :key="index">{{ interesse }}</li>
+                    </ul>
                 </div>
                 <div class="mb-3 row">
                     <span>Telefone:</span>
@@ -243,7 +246,8 @@ export default {
             email: 'tonan@outlook.com.br',
             senha:  '123456',
             idade: '37',
-            licenca: 'SIM'
+            licenca: 'SIM',
+            interesses: ['VueJS', 'Angular']
         }
     })
 }

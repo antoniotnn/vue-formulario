@@ -275,7 +275,7 @@
                     <span>rg: {{ form.rg }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Data: {{ form.data }}</span>
+                    <span>Data: {{ form.data }} | {{ moment(form.data).format('DD/MM/YYYY') }}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Data/hora local: {{ form.dataHoraLocal }}</span>
@@ -309,9 +309,13 @@
 </template>
 
 <script>
+import moment from 'moment';
+//console.log(moment);
+
 export default {
     name: 'Formulario',
     data: () => ({
+        moment: {},
         form: {
             nome: 'Antonio',
             email: 'tonan@outlook.com.br',
@@ -334,6 +338,9 @@ export default {
             semana: '',
             hora: ''
         }
-    })
+    }),
+    created() {
+        this.moment = moment;
+    }
 }
 </script>

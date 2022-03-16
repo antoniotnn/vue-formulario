@@ -189,7 +189,7 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Valor limite:</label>
                         <div class="col">
-                            <input type="range" class="form-range" min="0" max="100" step="1">
+                            <input type="range" class="form-range" min="0" max="100" step="1" v-model="form.alcance">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -304,7 +304,7 @@
                     <span>Cor: {{ form.cor }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Valor limite:</span>
+                    <span>Valor limite: {{ form.alcance }}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Escondido:</span>
@@ -348,7 +348,8 @@ export default {
             mes: '',
             semana: '',
             hora: '',
-            cor: ''
+            cor: '',
+            alcance: 5
         }
     })
     /*created() {

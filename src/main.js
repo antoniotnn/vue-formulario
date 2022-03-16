@@ -10,5 +10,6 @@ const app = createApp(App);
 
 app.use(Maska); //plugin , lib feita pro Vue, por isso a declaração dessa forma.
 app.config.globalProperties.$moment = moment; //não é um plugin pro Vue, então é declarada como uma propriedade global.
+app.config.globalProperties.$moment.locale('pt-br');
 
 app.mount('#app');

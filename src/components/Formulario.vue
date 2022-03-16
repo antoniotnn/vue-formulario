@@ -351,7 +351,7 @@ export default {
             mes: '',
             semana: '',
             hora: '',
-            cor: '',
+            cor: '#6c757d',
             alcance: 5,
             escondido: 'Esse input está escondido',
             arquivos: {}
@@ -359,7 +359,7 @@ export default {
     }),
     methods: {
         selecionarArquivos(event) {
-            console.log(event.target.files);
+            //console.log(event.target.files);
             this.form.arquivos = event.target.files;
         }
     }

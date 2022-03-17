@@ -204,6 +204,12 @@
                             <input type="file" class="form-control" multiple @change="selecionarArquivos($event)"> <!-- OBS: chamar assim: selecionarArquivos  sem parenteses nem parametros, faz com que por padrão o $event seja encaminhado também. --><!-- Vue 3, ou 2, ainda não suportam v-model para input type file --> <!--Atributo multiple para poder colocar vários arquivos -->
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">Descrição:</label>
+                        <div class="col">
+                            <textarea class="form-control" rows="3" v-model="form.descricao"></textarea>
+                        </div>
+                    </div>
                     <hr>
                     <div class="mb-3 row">
                         <div class="col d-flex justify-content-between">
@@ -314,7 +320,11 @@
                     <ul>
                         <li v-for="(arquivo, index) in form.arquivos" :key="index">{{ arquivo.name }}</li>
                     </ul>
-                </div>  
+                </div>
+                <div class="mb-3 row">
+                    <!--<pre>Descrição: {{ form.descricao }}</pre>-->
+                    <div style="white-space: pre">{{ form.descricao }}</div>
+                </div>
             </div>
         </div>
 
@@ -354,7 +364,8 @@ export default {
             cor: '#6c757d',
             alcance: 5,
             escondido: 'Esse input está escondido',
-            arquivos: {}
+            arquivos: {},
+            descricao: ''
         }
     }),
     methods: {

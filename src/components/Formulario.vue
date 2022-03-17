@@ -4,7 +4,9 @@
             <div class="col-6 bg-light">
                 <span class="fs-4">ENTRADA DE DADOS</span>
                 <hr>
-                <form>
+                <!--<form @submit.prevent="enviar($event)">-->
+                <!--<form>-->
+                <div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Nome:</label>
                         <div class="col">
@@ -229,12 +231,12 @@
                     <div class="mb-3 row">
                         <div class="col d-flex justify-content-between">
                             <button class="btn btn-secondary" type="reset">Limpar</button>
-                            <button class="btn btn-success" type="button">Enviar (btn)</button>
+                            <button class="btn btn-success" type="button" @click="enviar()">Enviar (btn)</button>
                             <button class="btn btn-success" type="submit">Enviar (submit)</button>
                         </div>                        
                     </div>
-                   
-                </form>
+                </div>   
+                <!--</form>-->
             </div>
 
             
@@ -398,6 +400,17 @@ export default {
         selecionarArquivos(event) {
             //console.log(event.target.files);
             this.form.arquivos = event.target.files;
+        },
+        enviar() {
+            //console.log(event);
+            console.log(this.form);
+
+            const formEnvio = Object.assign({}, this.form); //no envio de formulários, recomendado trabalhar com uma cópia dos dados a serem enviados ao backend, garantindo a integridade dos dados originais. Neste caso utilizamos o Object.assign , nativo do JS.
+
+            console.log(formEnvio);
+
+            //uma requisição http para um backend da aplicação
+            //retorna uma promise que nos vai permitir tomar acões se a requisição tiver sucesso ou não.
         }
     }
     /*created() {

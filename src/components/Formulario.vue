@@ -230,7 +230,7 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Avaliação:</label>
                         <div class="col">
-                            <input-estrelas />
+                            <input-estrelas :numero-estrelas="5" /> <!-- Se o bind não for feito, isto é se o numero-estrelas estiver sem os : (dois pontos) na frente, o que o vue passará para o componente será String e não um number. Por isso que o bind está sendo usado. E para passar String usando o bind, a sintaxe ficaria assim:  :numero-estrelas="'4'" -->
                         </div>
                     </div>
                     <hr>

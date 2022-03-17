@@ -210,6 +210,19 @@
                             <textarea class="form-control" rows="3" v-model="form.descricao"></textarea>
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">Cursos:</label>
+                        <div class="col">
+                            <select class="form-select">
+                                <option 
+                                v-for="curso in cursos"
+                                :key="curso.id"
+                                >
+                                    {{ curso.curso }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
                     <hr>
                     <div class="mb-3 row">
                         <div class="col d-flex justify-content-between">
@@ -340,6 +353,12 @@ export default {
     name: 'Formulario',
     data: () => ({
         //moment: {},
+        cursos: [
+            { id: 1, curso: 'Bancos de Dados Relacionais' },
+            { id: 2, curso: 'Desenvolvimento Web Avançado com Vue' },
+            { id: 3, curso: 'Desenvolvimento Web Avançado com Laravel' },
+            { id: 4, curso: 'Curso Completo do Desenvolvedor NodeJS e MongoDB' }
+        ],
         form: {
             nome: 'Antonio',
             email: 'tonan@outlook.com.br',

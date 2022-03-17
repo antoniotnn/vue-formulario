@@ -227,6 +227,12 @@
                             </select>
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">Avaliação:</label>
+                        <div class="col">
+                            <input-estrelas />
+                        </div>
+                    </div>
                     <hr>
                     <div class="mb-3 row">
                         <div class="col d-flex justify-content-between">
@@ -357,8 +363,12 @@
 <script>
 //import moment from 'moment';
 //console.log(moment);
+import InputEstrelas from '@/components/InputEstrelas.vue';
 
 export default {
+    components: {
+        InputEstrelas
+    },
     name: 'Formulario',
     data: () => ({
         //moment: {},

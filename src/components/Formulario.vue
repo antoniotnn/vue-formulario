@@ -5,7 +5,7 @@
                 <span class="fs-4">ENTRADA DE DADOS</span>
                 <hr>
                 <!--<form @submit.prevent="enviar($event)">-->
-                <!--<form>-->
+                <!--<form @reset.prevent="resetar()">-->
                 <div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Nome:</label>
@@ -230,7 +230,8 @@
                     <hr>
                     <div class="mb-3 row">
                         <div class="col d-flex justify-content-between">
-                            <button class="btn btn-secondary" type="reset">Limpar</button>
+                            <button class="btn btn-secondary" type="button" @click="resetar()">Limpar (btn)</button>
+                            <button class="btn btn-secondary" type="reset">Limpar (reset)</button>
                             <button class="btn btn-success" type="button" @click="enviar()">Enviar (btn)</button>
                             <button class="btn btn-success" type="submit">Enviar (submit)</button>
                         </div>                        
@@ -367,7 +368,8 @@ export default {
             { id: 3, curso: 'Desenvolvimento Web Avançado com Laravel' },
             { id: 4, curso: 'Curso Completo do Desenvolvedor NodeJS e MongoDB' }
         ],
-        form: {
+        form: {},
+        formEstadoInicial: {
             nome: 'Antonio',
             email: 'tonan@outlook.com.br',
             senha:  '123456',
@@ -411,10 +413,14 @@ export default {
 
             //uma requisição http para um backend da aplicação
             //retorna uma promise que nos vai permitir tomar acões se a requisição tiver sucesso ou não.
+        },
+        resetar() {
+            this.form = Object.assign({}, this.formEstadoInicial);
         }
+    },
+    created() {
+        //this.moment = moment;
+        this.resetar();
     }
-    /*created() {
-        this.moment = moment;
-    }*/
 }
 </script>

@@ -213,12 +213,14 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Cursos:</label>
                         <div class="col">
-                            <select class="form-select">
+                            <select class="form-select" v-model="form.curso">
+                                <option value="" disabled>-- Selecione uma opção --</option>
                                 <option 
                                 v-for="curso in cursos"
                                 :key="curso.id"
+                                :value="curso.id"
                                 >
-                                    {{ curso.curso }}
+                                    {{ curso.id }} - {{ curso.curso }}
                                 </option>
                             </select>
                         </div>
@@ -335,8 +337,12 @@
                     </ul>
                 </div>
                 <div class="mb-3 row">
+                    <span>Descrição: </span>
                     <!--<pre>Descrição: {{ form.descricao }}</pre>-->
                     <div style="white-space: pre">{{ form.descricao }}</div>
+                </div>
+                <div class="mb-3 row">
+                    <span>Curso: {{ form.curso }}</span>
                 </div>
             </div>
         </div>
@@ -384,7 +390,8 @@ export default {
             alcance: 5,
             escondido: 'Esse input está escondido',
             arquivos: {},
-            descricao: ''
+            descricao: '',
+            curso: ''
         }
     }),
     methods: {
